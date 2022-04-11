@@ -1,0 +1,36 @@
+.feature-item {
+  background-color: $white;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  border-radius: $radius-sm;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+
+  @include media(tab-port) {
+    padding: 2rem;
+  }
+
+  &:hover {
+    transform: translateY(-1.5rem) scale(1.03);
+  }
+
+  &__icon {
+    font-size: 6rem;
+    background-image: linear-gradient(
+        to right bottom,
+        $green-lt-transparent,
+        $green-dk-transparent
+      ),
+      url("../img/hero.jpeg");
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+
+    @include media(tab-port) {
+      margin-bottom: 0;
+    }
+  }
+}

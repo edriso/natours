@@ -1,0 +1,35 @@
+.u-text-center {
+  text-align: center;
+}
+
+.u-margin {
+  &-b {
+    &-sm {
+      margin-bottom: 1.25rem;
+    }
+
+    &-md {
+      margin-bottom: 4rem !important;
+      @include media(tab-port) {
+        margin-bottom: 3rem;
+      }
+    }
+
+    &-big {
+      margin-bottom: 8rem;
+      @include media(tab-port) {
+        margin-bottom: 5rem;
+      }
+    }
+  }
+
+  &-t {
+    &-big {
+      margin-top: 8rem;
+    }
+
+    &-huge {
+      margin-top: 10rem;
+    }
+  }
+}

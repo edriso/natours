@@ -1,0 +1,163 @@
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    background-color: $white;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    z-index: 1000;
+    cursor: pointer;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+    display: grid;
+    place-items: center;
+
+    @include media(tab-port) {
+      height: 6rem;
+      width: 6rem;
+    }
+  }
+
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient($green-lt, $green-dk);
+    z-index: 800;
+    transition: transform 800ms cubic-bezier(0.86, 0, 0.07, 1);
+
+    @include media(tab-port) {
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 900;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  &__list {
+    @include absCenter;
+    text-align: center;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $white 50%
+      );
+      background-size: 220%;
+      color: $white;
+      width: max-content;
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-size: 3rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 250ms ease;
+    }
+
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $green;
+      transform: translateX(1rem);
+    }
+
+    span {
+      margin-right: 1.5rem;
+      display: inline-block;
+    }
+  }
+
+  // Functionality
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  // Burger Menu
+  &__icon {
+    position: relative;
+    transition: background-color 200ms ease;
+
+    &,
+    &::before,
+    &::after {
+      display: inline-block;
+      width: 3rem;
+      height: 2px;
+      background-color: $grey-darker;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 200ms;
+    }
+
+    &::before {
+      top: -0.8rem;
+    }
+
+    &::after {
+      top: 0.8rem;
+    }
+  }
+
+  &__button:hover &__icon {
+    &::before {
+      top: -1rem;
+    }
+
+    &::after {
+      top: 1rem;
+    }
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+
+    &::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(-135deg);
+    }
+  }
+}

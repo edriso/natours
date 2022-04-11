@@ -1,0 +1,45 @@
+html {
+  // this makes the default 1rem = 10px
+  font-size: 62.5%;
+
+  @include media(tab-land) {
+    font-size: 56.25%; // 1rem = 9px
+  }
+
+  @include media(tab-port) {
+    font-size: 50%; // 1rem =  8px;
+  }
+
+  @include media(big-desktop) {
+    font-size: 75%; // 1rem = 12px
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $main-font;
+  font-weight: 400;
+  color: $grey-dk;
+  line-height: 1.7;
+  padding: 3rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.3;
+}
